@@ -1,0 +1,8 @@
+---
+mysqld_package_name: mysql-server-5.7
+mysqld_dep_apt:
+  - libmysqlclient-dev
+mysqld_dep_pip:
+  - mysqlclient==1.4.2
+mysqld_databases: []
+mysqld_users: []

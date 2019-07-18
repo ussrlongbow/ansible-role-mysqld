@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Valentin Gostev
+  description: Ansible role for installing MySQL from OS repo
+  license: MIT
+  min_ansible_version: 2.4
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+  galaxy_tags:
+    - mysql
+    - database
+dependencies:
+  - geerlingguy.pip

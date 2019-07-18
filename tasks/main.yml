@@ -1,0 +1,27 @@
+---
+- name: Install dependencies using APT
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ mysqld_dep_apt }}"
+- name: Install dependencies using PIP
+  pip:
+    name: "{{ item }}"
+  loop: "{{ mysqld_dep_pip }}"
+- name: Install MySQL server
+  apt:
+    name: "{{ mysqld_package_name }}"
+    state: present
+- name: Create MySQL databases
+  mysql_db:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ mysqld_databases }}"
+- name: Create MySQL users
+  mysql_user:
+    name: "{{ item.name }}"
+    password: "{{ item.name }}"
+    host: "{{ item.host|default('localhost')}}"
+    priv: "{{ item.priv }}"
+  loop: "{{ mysqld_users }}"
+  no_log: true
