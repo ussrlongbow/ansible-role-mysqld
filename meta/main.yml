@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: mysql
   author: Valentin Gostev
   description: Ansible role for installing MySQL from OS repo
   license: MIT
